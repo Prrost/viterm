@@ -34,12 +34,7 @@ func main() {
 }
 
 func VideoSetup(videoPath string) (string, error) {
-	projectDir, err := os.Getwd()
-	if err != nil {
-		return "", fmt.Errorf("could not get project dir: %w", err)
-	}
-
-	tempDir, err := os.MkdirTemp(projectDir, "temp")
+	tempDir, err := os.MkdirTemp("", "temp")
 	if err != nil {
 		return "", fmt.Errorf("could not create temp dir: %w", err)
 	}
